@@ -3,44 +3,52 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TechStore - Toko Online Modern</title>
+    <title>Tech Store - Toko Online Gadget & Elektronik Modern</title>
+    <meta name="description" content="Toko online resmi penyedia laptop, smartphone, smartwatch, dan aksesoris original bergaransi resmi.">
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <!-- Phosphor Icons for modern icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Phosphor Icons -->
     <script src="https://unpkg.com/@phosphor-icons/web"></script>
 </head>
 <body>
-    <!-- Navbar -->
-    <header class="navbar">
+
+    <!-- 1. NAVBAR -->
+    <header class="navbar" id="navbar">
         <div class="container nav-container">
-            <a href="#" class="logo">
-                <i class="ph ph-shopping-bag-open"></i>
-                Tech<span>Store</span>
+            <a href="#home" class="logo">
+                <div class="logo-icon">
+                    <i class="ph-bold ph-shopping-bag-open"></i>
+                </div>
+                <span>Tech <span class="logo-accent">Store</span></span>
             </a>
-            <div class="nav-menu">
+
+            <nav class="nav-menu">
                 <a href="#home" class="nav-link active">Beranda</a>
                 <a href="#products" class="nav-link">Produk</a>
                 <a href="#about" class="nav-link">Tentang</a>
-            </div>
+            </nav>
+
             <div class="nav-actions">
                 <div class="search-box">
-                    <input type="text" id="searchInput" placeholder="Cari produk...">
-                    <button id="searchBtn"><i class="ph ph-magnifying-glass"></i></button>
+                    <i class="ph ph-magnifying-glass search-icon"></i>
+                    <input type="text" id="searchInput" placeholder="Cari produk..." autocomplete="off">
                 </div>
-                <button class="cart-btn" id="cartBtn">
+                <button class="cart-btn" id="cartBtn" aria-label="Buka Keranjang Belanja">
                     <i class="ph ph-shopping-cart"></i>
                     <span class="cart-badge" id="cartBadge">0</span>
                 </button>
-                <button class="mobile-menu-btn" id="mobileMenuBtn">
+                <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Menu Mobile">
                     <i class="ph ph-list"></i>
                 </button>
             </div>
         </div>
-        <!-- Mobile Menu -->
+
+        <!-- Mobile Menu Dropdown -->
         <div class="mobile-menu" id="mobileMenu">
             <div class="mobile-search-box">
+                <i class="ph ph-magnifying-glass"></i>
                 <input type="text" id="mobileSearchInput" placeholder="Cari produk mobile...">
             </div>
             <a href="#home" class="mobile-nav-link active">Beranda</a>
@@ -49,175 +57,554 @@
         </div>
     </header>
 
-    <!-- Hero Section -->
+    <!-- 2. HERO SECTION -->
     <section id="home" class="hero">
         <div class="container hero-container">
+            <!-- Kolom Kiri: Headline, Subteks, CTA, Trust Badges -->
             <div class="hero-text">
-                <h1>Temukan Gadget <br><span>Masa Depan</span> Anda</h1>
-                <p>Koleksi terbaik untuk laptop, smartphone, dan aksesoris pintar dengan harga terjangkau dan kualitas terjamin.</p>
-                <a href="#products" class="btn btn-primary">Belanja Sekarang <i class="ph ph-arrow-right"></i></a>
+                <div class="hero-badge">
+                    <i class="ph-fill ph-sparkle"></i>
+                    <span>Koleksi Gadget Terbaru</span>
+                </div>
+                <h1>Temukan Gadget <br><span class="hero-highlight">Masa Depan</span> Anda</h1>
+                <p>Koleksi laptop unggulan, smartphone flagship, smartwatch, dan aksesoris pintar dengan jaminan 100% original serta garansi resmi distributor.</p>
+                
+                <div class="hero-cta-wrapper">
+                    <a href="#products" class="btn btn-primary hero-btn">
+                        <span>Belanja Sekarang</span>
+                        <i class="ph-bold ph-arrow-right"></i>
+                    </a>
+                </div>
+
+                <!-- Trust Badges Ringkas -->
+                <div class="hero-trust-badges">
+                    <div class="trust-badge-item">
+                        <div class="trust-icon">
+                            <i class="ph-bold ph-shield-check"></i>
+                        </div>
+                        <div class="trust-text">
+                            <strong>Garansi Resmi</strong>
+                            <span>Distributor Resmi</span>
+                        </div>
+                    </div>
+                    <div class="trust-badge-item">
+                        <div class="trust-icon">
+                            <i class="ph-bold ph-seal-check"></i>
+                        </div>
+                        <div class="trust-text">
+                            <strong>100% Original</strong>
+                            <span>Produk Terverifikasi</span>
+                        </div>
+                    </div>
+                    <div class="trust-badge-item">
+                        <div class="trust-icon">
+                            <i class="ph-bold ph-truck"></i>
+                        </div>
+                        <div class="trust-text">
+                            <strong>Bebas Ongkir</strong>
+                            <span>Se-Indonesia</span>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="hero-image">
-                <img src="https://images.unsplash.com/photo-1498049794561-7780e7231661?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Tech Gadgets">
+
+            <!-- Kolom Kanan: Visual Showcase Produk Melayang -->
+            <div class="hero-visual" id="heroVisual">
+                <div class="floating-orb orb-1"></div>
+                <div class="floating-orb orb-2"></div>
+                <div class="orbital-ring ring-1"></div>
+                <div class="orbital-ring ring-2"></div>
+
+                <div class="hero-floating-stage" id="heroStage">
+                    <img src="hero-gadgets.jpg" alt="Gadget Masa Depan Melayang" class="hero-floating-img">
+                    
+                    <div class="floating-micro-badge chip-top">
+                        <div class="chip-icon"><i class="ph-fill ph-lightning"></i></div>
+                        <div class="chip-info">
+                            <strong>Performa Maksimal</strong>
+                            <span>Apple M3 & AI Chip</span>
+                        </div>
+                    </div>
+
+                    <div class="floating-micro-badge chip-bottom">
+                        <div class="chip-icon"><i class="ph-fill ph-headphones"></i></div>
+                        <div class="chip-info">
+                            <strong>Spatial Audio 360°</strong>
+                            <span>Active Noise Cancelling</span>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- Main Content -->
+    <!-- 3. SECTION PRODUK -->
     <main class="container main-content" id="products">
         <div class="section-header">
-            <h2>Katalog Produk</h2>
-            <p>Jelajahi berbagai perangkat elektronik terbaik kami</p>
+            <span class="section-pill">Katalog Unggulan</span>
+            <h2>Katalog Produk Pilihan</h2>
+            <p>Jelajahi berbagai perangkat elektronik terbaik dengan spesifikasi terdepan</p>
         </div>
 
-        <!-- Filter Categories -->
-        <div class="category-filter" id="categoryFilter">
-            <button class="filter-btn active" data-filter="all">Semua</button>
-            <button class="filter-btn" data-filter="laptop">Laptop</button>
-            <button class="filter-btn" data-filter="smartphone">Smartphone</button>
-            <button class="filter-btn" data-filter="smartwatch">Smartwatch</button>
-            <button class="filter-btn" data-filter="aksesoris">Aksesoris</button>
+        <!-- Tombol Filter Kategori (Pill Buttons) -->
+        <div class="category-filter" id="categoryFilter" role="tablist">
+            <button class="filter-btn active" data-filter="all" role="tab" aria-selected="true">Semua</button>
+            <button class="filter-btn" data-filter="laptop" role="tab" aria-selected="false">Laptop</button>
+            <button class="filter-btn" data-filter="smartphone" role="tab" aria-selected="false">Smartphone</button>
+            <button class="filter-btn" data-filter="smartwatch" role="tab" aria-selected="false">Smartwatch</button>
+            <button class="filter-btn" data-filter="aksesoris" role="tab" aria-selected="false">Aksesoris</button>
         </div>
 
-        <!-- Product Grid -->
+        <!-- Grid Kartu Produk -->
         <div class="product-grid" id="productGrid">
-            <!-- Products will be dynamically generated by JS -->
+            
+            <!-- Laptop 1 -->
+            <div class="product-card" data-id="1" data-category="laptop" data-name="MacBook Pro 14 M3" data-price="32000000" data-image="https://images.unsplash.com/photo-1517336714731-489689fd1ca8?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80">
+                <span class="product-category-tag">Laptop</span>
+                <div class="product-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1517336714731-489689fd1ca8?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="MacBook Pro 14 M3" loading="lazy">
+                </div>
+                <div class="product-info">
+                    <h3 class="product-title">MacBook Pro 14" M3</h3>
+                    <div class="product-rating">
+                        <i class="ph-fill ph-star"></i>
+                        <i class="ph-fill ph-star"></i>
+                        <i class="ph-fill ph-star"></i>
+                        <i class="ph-fill ph-star"></i>
+                        <i class="ph-fill ph-star-half"></i>
+                        <span>4.9 (142 ulasan)</span>
+                    </div>
+                    <div class="product-bottom">
+                        <div class="product-price">Rp 32.000.000</div>
+                        <button class="add-to-cart-btn" aria-label="Tambah ke keranjang">
+                            <i class="ph ph-plus"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Laptop 2 -->
+            <div class="product-card" data-id="2" data-category="laptop" data-name="Asus ROG Zephyrus G14" data-price="28500000" data-image="https://images.unsplash.com/photo-1603302576837-37561b2e2302?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80">
+                <span class="product-category-tag">Laptop</span>
+                <div class="product-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1603302576837-37561b2e2302?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Asus ROG Zephyrus G14" loading="lazy">
+                </div>
+                <div class="product-info">
+                    <h3 class="product-title">Asus ROG Zephyrus G14</h3>
+                    <div class="product-rating">
+                        <i class="ph-fill ph-star"></i>
+                        <i class="ph-fill ph-star"></i>
+                        <i class="ph-fill ph-star"></i>
+                        <i class="ph-fill ph-star"></i>
+                        <i class="ph-fill ph-star-half"></i>
+                        <span>4.8 (95 ulasan)</span>
+                    </div>
+                    <div class="product-bottom">
+                        <div class="product-price">Rp 28.500.000</div>
+                        <button class="add-to-cart-btn" aria-label="Tambah ke keranjang">
+                            <i class="ph ph-plus"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Laptop 3 -->
+            <div class="product-card" data-id="3" data-category="laptop" data-name="Lenovo ThinkPad X1 Carbon" data-price="25000000" data-image="https://images.unsplash.com/photo-1588872657578-7efd1f1555ed?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80">
+                <span class="product-category-tag">Laptop</span>
+                <div class="product-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1588872657578-7efd1f1555ed?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Lenovo ThinkPad X1 Carbon" loading="lazy">
+                </div>
+                <div class="product-info">
+                    <h3 class="product-title">Lenovo ThinkPad X1 Carbon</h3>
+                    <div class="product-rating">
+                        <i class="ph-fill ph-star"></i>
+                        <i class="ph-fill ph-star"></i>
+                        <i class="ph-fill ph-star"></i>
+                        <i class="ph-fill ph-star"></i>
+                        <i class="ph-fill ph-star-half"></i>
+                        <span>4.7 (210 ulasan)</span>
+                    </div>
+                    <div class="product-bottom">
+                        <div class="product-price">Rp 25.000.000</div>
+                        <button class="add-to-cart-btn" aria-label="Tambah ke keranjang">
+                            <i class="ph ph-plus"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Smartphone 1 -->
+            <div class="product-card" data-id="4" data-category="smartphone" data-name="iPhone 15 Pro Max" data-price="23000000" data-image="https://images.unsplash.com/photo-1695048133142-1a20484d2569?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80">
+                <span class="product-category-tag">Smartphone</span>
+                <div class="product-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1695048133142-1a20484d2569?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="iPhone 15 Pro Max" loading="lazy">
+                </div>
+                <div class="product-info">
+                    <h3 class="product-title">iPhone 15 Pro Max</h3>
+                    <div class="product-rating">
+                        <i class="ph-fill ph-star"></i>
+                        <i class="ph-fill ph-star"></i>
+                        <i class="ph-fill ph-star"></i>
+                        <i class="ph-fill ph-star"></i>
+                        <i class="ph-fill ph-star-half"></i>
+                        <span>4.9 (380 ulasan)</span>
+                    </div>
+                    <div class="product-bottom">
+                        <div class="product-price">Rp 23.000.000</div>
+                        <button class="add-to-cart-btn" aria-label="Tambah ke keranjang">
+                            <i class="ph ph-plus"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Smartphone 2 -->
+            <div class="product-card" data-id="5" data-category="smartphone" data-name="Samsung Galaxy S24 Ultra" data-price="21500000" data-image="https://images.unsplash.com/photo-1610945265064-0e34e5519bbf?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80">
+                <span class="product-category-tag">Smartphone</span>
+                <div class="product-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1610945265064-0e34e5519bbf?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Samsung Galaxy S24 Ultra" loading="lazy">
+                </div>
+                <div class="product-info">
+                    <h3 class="product-title">Samsung Galaxy S24 Ultra</h3>
+                    <div class="product-rating">
+                        <i class="ph-fill ph-star"></i>
+                        <i class="ph-fill ph-star"></i>
+                        <i class="ph-fill ph-star"></i>
+                        <i class="ph-fill ph-star"></i>
+                        <i class="ph-fill ph-star-half"></i>
+                        <span>4.8 (275 ulasan)</span>
+                    </div>
+                    <div class="product-bottom">
+                        <div class="product-price">Rp 21.500.000</div>
+                        <button class="add-to-cart-btn" aria-label="Tambah ke keranjang">
+                            <i class="ph ph-plus"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Smartphone 3 -->
+            <div class="product-card" data-id="6" data-category="smartphone" data-name="Google Pixel 8 Pro" data-price="16500000" data-image="https://images.unsplash.com/photo-1598327105666-5b89351cb31b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80">
+                <span class="product-category-tag">Smartphone</span>
+                <div class="product-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1598327105666-5b89351cb31b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Google Pixel 8 Pro" loading="lazy">
+                </div>
+                <div class="product-info">
+                    <h3 class="product-title">Google Pixel 8 Pro</h3>
+                    <div class="product-rating">
+                        <i class="ph-fill ph-star"></i>
+                        <i class="ph-fill ph-star"></i>
+                        <i class="ph-fill ph-star"></i>
+                        <i class="ph-fill ph-star"></i>
+                        <i class="ph-fill ph-star-half"></i>
+                        <span>4.7 (134 ulasan)</span>
+                    </div>
+                    <div class="product-bottom">
+                        <div class="product-price">Rp 16.500.000</div>
+                        <button class="add-to-cart-btn" aria-label="Tambah ke keranjang">
+                            <i class="ph ph-plus"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Smartwatch 1 -->
+            <div class="product-card" data-id="7" data-category="smartwatch" data-name="Apple Watch Series 9" data-price="6500000" data-image="https://images.unsplash.com/photo-1434493789847-2f02dc6ca35d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80">
+                <span class="product-category-tag">Smartwatch</span>
+                <div class="product-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1434493789847-2f02dc6ca35d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Apple Watch Series 9" loading="lazy">
+                </div>
+                <div class="product-info">
+                    <h3 class="product-title">Apple Watch Series 9</h3>
+                    <div class="product-rating">
+                        <i class="ph-fill ph-star"></i>
+                        <i class="ph-fill ph-star"></i>
+                        <i class="ph-fill ph-star"></i>
+                        <i class="ph-fill ph-star"></i>
+                        <i class="ph-fill ph-star-half"></i>
+                        <span>4.8 (420 ulasan)</span>
+                    </div>
+                    <div class="product-bottom">
+                        <div class="product-price">Rp 6.500.000</div>
+                        <button class="add-to-cart-btn" aria-label="Tambah ke keranjang">
+                            <i class="ph ph-plus"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Smartwatch 2 -->
+            <div class="product-card" data-id="8" data-category="smartwatch" data-name="Garmin Fenix 7 Pro" data-price="13500000" data-image="https://images.unsplash.com/photo-1508685096489-7aacd43bd3b1?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80">
+                <span class="product-category-tag">Smartwatch</span>
+                <div class="product-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1508685096489-7aacd43bd3b1?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Garmin Fenix 7 Pro" loading="lazy">
+                </div>
+                <div class="product-info">
+                    <h3 class="product-title">Garmin Fenix 7 Pro</h3>
+                    <div class="product-rating">
+                        <i class="ph-fill ph-star"></i>
+                        <i class="ph-fill ph-star"></i>
+                        <i class="ph-fill ph-star"></i>
+                        <i class="ph-fill ph-star"></i>
+                        <i class="ph-fill ph-star-half"></i>
+                        <span>4.9 (165 ulasan)</span>
+                    </div>
+                    <div class="product-bottom">
+                        <div class="product-price">Rp 13.500.000</div>
+                        <button class="add-to-cart-btn" aria-label="Tambah ke keranjang">
+                            <i class="ph ph-plus"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Smartwatch 3 -->
+            <div class="product-card" data-id="9" data-category="smartwatch" data-name="Samsung Galaxy Watch 6 Classic" data-price="5200000" data-image="https://images.unsplash.com/photo-1579586337278-3befd40fd17a?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80">
+                <span class="product-category-tag">Smartwatch</span>
+                <div class="product-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1579586337278-3befd40fd17a?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Samsung Galaxy Watch 6 Classic" loading="lazy">
+                </div>
+                <div class="product-info">
+                    <h3 class="product-title">Samsung Galaxy Watch 6 Classic</h3>
+                    <div class="product-rating">
+                        <i class="ph-fill ph-star"></i>
+                        <i class="ph-fill ph-star"></i>
+                        <i class="ph-fill ph-star"></i>
+                        <i class="ph-fill ph-star"></i>
+                        <i class="ph-fill ph-star-half"></i>
+                        <span>4.6 (205 ulasan)</span>
+                    </div>
+                    <div class="product-bottom">
+                        <div class="product-price">Rp 5.200.000</div>
+                        <button class="add-to-cart-btn" aria-label="Tambah ke keranjang">
+                            <i class="ph ph-plus"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Aksesoris 1 -->
+            <div class="product-card" data-id="10" data-category="aksesoris" data-name="Sony WH-1000XM5" data-price="5500000" data-image="https://images.unsplash.com/photo-1618366712010-f4ae9c647dcb?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80">
+                <span class="product-category-tag">Aksesoris</span>
+                <div class="product-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1618366712010-f4ae9c647dcb?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Sony WH-1000XM5" loading="lazy">
+                </div>
+                <div class="product-info">
+                    <h3 class="product-title">Sony WH-1000XM5</h3>
+                    <div class="product-rating">
+                        <i class="ph-fill ph-star"></i>
+                        <i class="ph-fill ph-star"></i>
+                        <i class="ph-fill ph-star"></i>
+                        <i class="ph-fill ph-star"></i>
+                        <i class="ph-fill ph-star-half"></i>
+                        <span>4.9 (540 ulasan)</span>
+                    </div>
+                    <div class="product-bottom">
+                        <div class="product-price">Rp 5.500.000</div>
+                        <button class="add-to-cart-btn" aria-label="Tambah ke keranjang">
+                            <i class="ph ph-plus"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Aksesoris 2 -->
+            <div class="product-card" data-id="11" data-category="aksesoris" data-name="Logitech MX Master 3S" data-price="1650000" data-image="https://images.unsplash.com/photo-1527814050087-1510465cecaa?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80">
+                <span class="product-category-tag">Aksesoris</span>
+                <div class="product-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1527814050087-1510465cecaa?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Logitech MX Master 3S" loading="lazy">
+                </div>
+                <div class="product-info">
+                    <h3 class="product-title">Logitech MX Master 3S</h3>
+                    <div class="product-rating">
+                        <i class="ph-fill ph-star"></i>
+                        <i class="ph-fill ph-star"></i>
+                        <i class="ph-fill ph-star"></i>
+                        <i class="ph-fill ph-star"></i>
+                        <i class="ph-fill ph-star-half"></i>
+                        <span>4.8 (360 ulasan)</span>
+                    </div>
+                    <div class="product-bottom">
+                        <div class="product-price">Rp 1.650.000</div>
+                        <button class="add-to-cart-btn" aria-label="Tambah ke keranjang">
+                            <i class="ph ph-plus"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Aksesoris 3 -->
+            <div class="product-card" data-id="12" data-category="aksesoris" data-name="Keychron Q1 Pro" data-price="3200000" data-image="https://images.unsplash.com/photo-1595225476474-87563907a212?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80">
+                <span class="product-category-tag">Aksesoris</span>
+                <div class="product-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1595225476474-87563907a212?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Keychron Q1 Pro" loading="lazy">
+                </div>
+                <div class="product-info">
+                    <h3 class="product-title">Keychron Q1 Pro</h3>
+                    <div class="product-rating">
+                        <i class="ph-fill ph-star"></i>
+                        <i class="ph-fill ph-star"></i>
+                        <i class="ph-fill ph-star"></i>
+                        <i class="ph-fill ph-star"></i>
+                        <i class="ph-fill ph-star-half"></i>
+                        <span>4.7 (125 ulasan)</span>
+                    </div>
+                    <div class="product-bottom">
+                        <div class="product-price">Rp 3.200.000</div>
+                        <button class="add-to-cart-btn" aria-label="Tambah ke keranjang">
+                            <i class="ph ph-plus"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
         </div>
 
         <!-- No Results Message -->
         <div id="noResultsMessage" class="no-results hidden">
-            <i class="ph ph-smiley-sad"></i>
+            <div class="no-results-icon">
+                <i class="ph ph-magnifying-glass"></i>
+            </div>
             <h3>Oops! Produk tidak ditemukan</h3>
-            <p>Coba gunakan kata kunci lain atau pilih kategori yang berbeda.</p>
+            <p>Tidak ada produk yang cocok dengan pencarian atau filter kategori yang dipilih.</p>
         </div>
     </main>
 
-    <!-- Footer -->
-    <footer class="footer" id="about">
-        <div class="container footer-container">
-            <div class="footer-brand">
-                <a href="#" class="logo">
-                    <i class="ph ph-shopping-bag-open"></i>
-                    Tech<span>Store</span>
-                </a>
-                <p>Destinasi belanja gadget terpercaya dengan layanan pelanggan terbaik.</p>
-                <div class="social-links">
-                    <a href="https://www.instagram.com/hbibtegar_/"><i class="ph ph-instagram-logo"></i></a>
-                    <a href="https://www.tiktok.com/@garrzyy_"><i class="ph ph-tiktok-logo"></i></a>
-                    <a href="https://www.facebook.com/profile.php?id=61590397717321"><i class="ph ph-facebook-logo"></i></a>
+    <!-- 4. SECTION TENTANG KAMI (VALUE PROPOSITION) -->
+    <section id="about" class="about-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-pill">Nilai Keunggulan</span>
+                <h2>Mengapa Memilih Tech Store?</h2>
+                <p>Komitmen kami menghadirkan pengalaman belanja gadget terdepan, aman, dan memuaskan</p>
+            </div>
+
+            <div class="about-grid">
+                <!-- Card 1 -->
+                <div class="about-card">
+                    <div class="about-icon-wrapper">
+                        <i class="ph ph-seal-check"></i>
+                    </div>
+                    <h3>Produk 100% Original</h3>
+                    <p>Setiap produk dijamin asli dengan garansi resmi dari distributor Indonesia.</p>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="about-card">
+                    <div class="about-icon-wrapper">
+                        <i class="ph ph-truck"></i>
+                    </div>
+                    <h3>Bebas Ongkir</h3>
+                    <p>Pengiriman cepat, aman, dan bebas biaya kirim ke seluruh pelosok tanah air.</p>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="about-card">
+                    <div class="about-icon-wrapper">
+                        <i class="ph ph-headset"></i>
+                    </div>
+                    <h3>Layanan Cepat 24/7</h3>
+                    <p>Bantuan ramah dan responsif melalui WhatsApp untuk segala kebutuhan Anda.</p>
+                </div>
+
+                <!-- Card 4 -->
+                <div class="about-card">
+                    <div class="about-icon-wrapper">
+                        <i class="ph ph-arrows-clockwise"></i>
+                    </div>
+                    <h3>Jaminan Retur</h3>
+                    <p>Jaminan tukar unit baru jika produk yang Anda terima mengalami cacat produksi.</p>
                 </div>
             </div>
+        </div>
+    </section>
+
+    <!-- 5. FOOTER (TEMA GELAP ELEGAN) -->
+    <footer class="footer">
+        <div class="container footer-container">
+            <div class="footer-brand">
+                <a href="#home" class="logo">
+                    <div class="logo-icon">
+                        <i class="ph-bold ph-shopping-bag-open"></i>
+                    </div>
+                    <span>Tech <span class="logo-accent">Store</span></span>
+                </a>
+                <p>Destinasi belanja gadget terpercaya di Indonesia dengan produk original, garansi resmi, dan pelayanan prima sejak 2020.</p>
+                <div class="social-links">
+                    <a href="https://www.instagram.com/hbibtegar_/" target="_blank" rel="noopener" aria-label="Instagram"><i class="ph ph-instagram-logo"></i></a>
+                    <a href="https://www.tiktok.com/@garrzyy_" target="_blank" rel="noopener" aria-label="TikTok"><i class="ph ph-tiktok-logo"></i></a>
+                    <a href="https://www.facebook.com/profile.php?id=61590397717321" target="_blank" rel="noopener" aria-label="Facebook"><i class="ph ph-facebook-logo"></i></a>
+                </div>
+            </div>
+
             <div class="footer-links">
                 <h3>Tautan Cepat</h3>
                 <a href="#home">Beranda</a>
-                <a href="#products">Produk</a>
-                <a href="#">Tentang Kami</a>
-                <a href="#">Kontak</a>
+                <a href="#products">Katalog Produk</a>
+                <a href="#about">Tentang Kami</a>
             </div>
+
             <div class="footer-links">
                 <h3>Bantuan</h3>
-                <a href="#">Cara Belanja</a>
-                <a href="#">Pengiriman</a>
-                <a href="#">Pengembalian</a>
-                <a href="#">FAQ</a>
+                <a href="#about">Cara Belanja</a>
+                <a href="#about">Pengiriman Gratis</a>
+                <a href="#about">Garansi & Retur</a>
             </div>
+
             <div class="footer-contact">
                 <h3>Hubungi Kami</h3>
                 <p><i class="ph ph-envelope-simple"></i> support@techstore.com</p>
-                <p><i class="ph ph-phone"></i> +62 812 3456 7890</p>
+                <p><i class="ph ph-whatsapp-logo"></i> +62 812 3456 7890</p>
                 <p><i class="ph ph-map-pin"></i> Jakarta, Indonesia</p>
             </div>
         </div>
+
         <div class="footer-bottom">
-            <p>&copy; 2026 TechStore. All rights reserved. Created with <i class="ph-fill ph-heart" style="color: #ef4444;"></i></p>
+            <div class="container footer-bottom-content">
+                <p>&copy; 2026 Tech Store. All rights reserved.</p>
+                <p class="footer-credit">Desain Modern, Bersih & Minimalis</p>
+            </div>
         </div>
     </footer>
 
-    <!-- Shopping Cart Overlay -->
+    <!-- 6. MODAL / DRAWER KERANJANG BELANJA -->
     <div class="cart-overlay" id="cartOverlay">
         <div class="cart-sidebar">
             <div class="cart-header">
-                <h2>Keranjang Belanja</h2>
-                <button class="close-cart" id="closeCartBtn"><i class="ph ph-x"></i></button>
+                <div class="cart-title-wrapper">
+                    <h2>Keranjang Belanja</h2>
+                    <span class="cart-items-count" id="cartItemsCountText">(0 item)</span>
+                </div>
+                <button class="close-cart" id="closeCartBtn" aria-label="Tutup Keranjang">
+                    <i class="ph ph-x"></i>
+                </button>
             </div>
             
             <div class="cart-items" id="cartItems">
-                <!-- Cart items generated by JS -->
+                <!-- Item keranjang dirender via script.js -->
             </div>
             
             <div class="cart-footer">
+                <div class="cart-summary-line">
+                    <span class="summary-label">Biaya Kirim</span>
+                    <span class="summary-value free-badge">Gratis</span>
+                </div>
                 <div class="cart-total">
-                    <span>Total Keseluruhan</span>
+                    <span>Total Harga</span>
                     <span class="total-price" id="cartTotalPrice">Rp 0</span>
                 </div>
-                <button class="btn btn-primary btn-block checkout-btn" id="checkoutBtn">Lanjutkan ke Pembayaran</button>
+                
+                <!-- Tombol Checkout via WhatsApp -->
+                <button class="btn btn-whatsapp btn-block" id="whatsappCheckoutBtn">
+                    <i class="ph-bold ph-whatsapp-logo"></i>
+                    <span>Checkout via WhatsApp</span>
+                </button>
             </div>
         </div>
     </div>
 
-    <!-- Checkout Modal -->
-    <div class="modal-overlay" id="checkoutModal">
-        <div class="modal-content checkout-modal">
-            <div class="modal-header">
-                <h2>Form Checkout</h2>
-                <button class="close-modal" id="closeCheckoutBtn"><i class="ph ph-x"></i></button>
-            </div>
-            <div class="modal-body">
-                <form id="checkoutForm">
-                    <div class="form-group">
-                        <label for="name">Nama Lengkap</label>
-                        <input type="text" id="name" required placeholder="Masukkan nama lengkap">
-                    </div>
-                    <div class="form-group">
-                        <label for="email">Email</label>
-                        <input type="email" id="email" required placeholder="contoh@email.com">
-                    </div>
-                    <div class="form-group">
-                        <label for="address">Alamat Pengiriman</label>
-                        <textarea id="address" rows="3" required placeholder="Alamat lengkap RT/RW..."></textarea>
-                    </div>
-                    <div class="form-group">
-                        <label>Metode Pembayaran</label>
-                        <select id="paymentMethod" required>
-                            <option value="transfer">Transfer Bank</option>
-                            <option value="ewallet">E-Wallet (OVO/GoPay/Dana)</option>
-                            <option value="cod">Bayar di Tempat (COD)</option>
-                        </select>
-                    </div>
-                    
-                    <div class="order-summary-mini">
-                        <h4>Ringkasan Pesanan</h4>
-                        <div class="summary-row">
-                            <span>Subtotal</span>
-                            <span id="checkoutSubtotal">Rp 0</span>
-                        </div>
-                        <div class="summary-row">
-                            <span>Ongkos Kirim</span>
-                            <span>Gratis</span>
-                        </div>
-                        <div class="summary-row total">
-                            <span>Total Bayar</span>
-                            <span id="checkoutTotal">Rp 0</span>
-                        </div>
-                    </div>
-                    
-                    <button type="submit" class="btn btn-primary btn-block">Konfirmasi Pembayaran</button>
-                </form>
-            </div>
-        </div>
-    </div>
-
-    <!-- Product Detail Modal -->
-    <div class="modal-overlay" id="productModal">
-        <div class="modal-content product-modal" id="productModalContent">
-            <!-- Populated by JS -->
-        </div>
-    </div>
-
-    <!-- Toast Notification -->
-    <div class="toast-container" id="toastContainer">
-        <!-- Toasts go here -->
-    </div>
+    <!-- Toast Notification Container -->
+    <div class="toast-container" id="toastContainer" aria-live="polite"></div>
 
     <script src="script.js"></script>
 </body>
